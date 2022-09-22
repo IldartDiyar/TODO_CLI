@@ -3,7 +3,7 @@ import hashlib
 
 
 class User:
-    def __init__(self, id, username, name, age, password):
+    def __init__(self, username, name, age, password):
         self.username = username
         self.name = name
         self.age = age

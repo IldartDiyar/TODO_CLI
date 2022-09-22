@@ -6,7 +6,7 @@
             "topic": "Diyar",
             "date": "18.12.22",
             "Text": "Text",
-            "Finished": true
+            "status": true
         },
         {
             "username": "Qwe",

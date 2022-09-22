@@ -1,17 +1,7 @@
 import auth
 import os
-
+import todo_menu
 from time import sleep
-
-
-class TodoList:
-    def __init__(self, id, username, topic, date, text, finished):
-        self.id = id
-        self.username = username
-        self.topic = topic
-        self.date = date
-        self.text = text
-        self.finished = finished
 
 
 def main(data_user):
@@ -27,7 +17,7 @@ def main(data_user):
         print("3) Exit ")
         choi = int(input())
         if choi == 1:
-
+            todo_menu.main(user.get_username)
         if choi == 2:
             ps1 = user.get_password
             ps = input("Enter u current password\n")
