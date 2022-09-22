@@ -1,22 +1,25 @@
 import auth
 import menu
 import os
+from time import sleep
 
 
 def main():
     while True:
-        choi = int(input("1) To registration \n2) To auth \n"))
+        choi = int(input("1) To registration \n2) To auth \n3) To exit\n"))
         if (choi == 1 and auth.Auth.register()):
             print("Succesfully registerd")
             clear()
         elif (choi == 2):
             menu.main(auth.Auth.login())
+        elif (choi == 3):
+            exit()
         else:
             print("Something went wrong")
 
 
 def clear():
-    sleep(5)
+    sleep(1)
     os.system('clear')
     # system('cls') if u use windows
 
