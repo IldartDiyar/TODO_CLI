@@ -56,6 +56,7 @@ class Auth:
                 users_data["Users"].append(credo)
                 # for deleting all data in json file
                 file_data.seek(0)
+                # inserting data to file
                 json.dump(users_data, file_data, indent=4)
                 return True
             except:
@@ -84,7 +85,7 @@ class Auth:
             users_data = json.load(file_data)
             for user in users_data["Users"]:
                 if username == user["username"]:
-                    user["password"] = hash_password(new_ps)
+                    user["password"] = self.hash_password(new_ps)
                     file_data.truncate(0)
                     file_data.seek(0)
                     json.dump(users_data, file_data, indent=4)
