@@ -3,6 +3,7 @@ import hashlib
 
 
 class User:
+    # Here class of User
     def __init__(self, username, name, age, password):
         self.username = username
         self.name = name
@@ -30,6 +31,7 @@ class Auth:
     @classmethod
     def register(self):
         username = input("Enter username:\n")
+        # checking the same usernames in json file
         if (self.check_username_exist(username)):
             print("Sorry, username exist")
             self.register()
@@ -47,10 +49,12 @@ class Auth:
 
         with open('user_data.json', "r+") as file_data:
             try:
+                # create credo dict to insert in json file
                 credo = {"username": username, "name": name,
                          "age": age, "password": self.hash_password(password)}
                 users_data = json.load(file_data)
                 users_data["Users"].append(credo)
+                # for deleting all data in json file
                 file_data.seek(0)
                 json.dump(users_data, file_data, indent=4)
                 return True
@@ -61,10 +65,12 @@ class Auth:
     @classmethod
     def login(self):
         username = input("Enter username:\n")
+        # here hashing of password
         password = self.hash_password(input("Enter password:\n"))
         with open("user_data.json", "r") as file_data:
             users_data = json.load(file_data)
             for user in users_data["Users"]:
+                # checking the same user and same password, in other word auth
                 if username == user["username"] and password == user["password"]:
                     return user
                 else:

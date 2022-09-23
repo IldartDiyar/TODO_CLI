@@ -12,7 +12,7 @@ def main(user_name):
     os.system('clear')
     while True:
         print('-'*25)
-        choi = int(input("1)To modify\n2)To go main menu\n"))
+        choi = int(input("2)To go main menu\n"))
         print("|id|topic|date|text|status| ")
         for todo in todos:
             print(("|{0}|{1}|{2}|{3}|{4}|").format(
