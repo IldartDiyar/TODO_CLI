@@ -24,8 +24,8 @@ def main(user_name):
                 input("1)To Change status\n2)To delete todo\n"))
             if (choi1 == 1 and change_status(user_name)):
                 print("Status has been changed")
-            if (choi1 == 2 and delete_todo(user_name)):
-                print("Todo has been deleted")
+            if (choi1 == 2):
+                print("Delete not working")
         if (choi == 2 and add_todos(user_name)):
             print("Have been added")
         if (choi == 3):
@@ -95,17 +95,17 @@ def dif(data):
     return not data
 
 
-def delete_todo(user_name):
-    ids = input("Just enter id of todo\n")
-    with open("todo_data.json", "r+") as file_data:
-        todos_data = json.load(file_data)
-        for todo in todos_data["Todo"]:
-            if user_name == todo["username"] and int(ids) != todo["id"]:
-                todos.pop(todo)
-                file_data.truncate(0)
-                file_data.seek(0)
-                json.dump(todos_data, file_data, indent=4)
-                break
+# def delete_todo(user_name):
+#     ids = input("Just enter id of todo\n")
+#     with open("todo_data.json", "r+") as file_data:
+#         todos_data = json.load(file_data)
+#         for todo in todos_data["Todo"]:
+#             if user_name == todo["username"] and int(ids) != todo["id"]:
+#                 del todos_data[todo]
+#                 file_data.truncate(0)
+#                 file_data.seek(0)
+#                 json.dump(todos_data, file_data, indent=4)
+#                 break
 
     for todo in todos:
         if int(ids) == todo["id"]:
